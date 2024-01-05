@@ -12,6 +12,13 @@ find_package(tf2 REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 
+add_executable(pid_maze_solver src/pid_maze_solver.cpp)
+ament_target_dependencies(pid_maze_solver rclcpp geometry_msgs nav_msgs tf2)
+
+install(TARGETS 
+  pid_maze_solver
+  DESTINATION lib/${PROJECT_NAME})
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
